@@ -1,0 +1,66 @@
+html{
+  min-height: 100%;
+  position: relative;
+}
+body {
+  padding-top: 54px;
+   margin-bottom: 150px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.business-header {
+  height: 50vh;
+  min-height: 300px;
+  background:
+    url('../img/background/helicopter.jpg')
+    top center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.card {
+  height: 100%;
+}
+.andy{
+  width: 200px;
+}
+.nota-margin{
+  margin-top: 200px;
+}
+.warning-version{
+  color: #BDBDBD;
+}
+
+.fix-cards{
+  margin-bottom: 60px;
+}
+
+.programer{
+  margin-top: 25px;
+}
+
+.mybull{
+  width: 64px;
+}
+.function-label{
+  font-size: 150%;
+  font-family: 'Petit Formal Script', cursive;
+}
+.solution-container{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: lightblue;
+}
