@@ -1,13 +1,8 @@
 var btnMinimizar = document.getElementById('btnMinimizar');
 btnMinimizar.addEventListener('click', function (e) {
   e.preventDefault();
-  document.getElementById('minterminos').disabled = true
-  if(btnMinimizar.innerHTML == "Minimizar"){
-    init(e);
-    btnMinimizar.innerHTML = "Nueva ecuación";
-  } else {
-    window.location.reload()
-  }
+  init(e);
+  
 });
 
 function init() {
@@ -19,6 +14,13 @@ function init() {
   if(!regex.test(input_minterm)){
     alert("Los minterminos deben ser numeros separados por comas");
     return;
+  }
+  
+  document.getElementById('minterminos').disabled = true
+  if(btnMinimizar.innerHTML == "Minimizar"){
+    btnMinimizar.innerHTML = "Nueva ecuación";
+  } else {
+    window.location.reload()
   }
 
   let minterm = []
