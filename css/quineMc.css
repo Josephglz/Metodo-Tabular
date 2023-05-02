@@ -62,5 +62,79 @@ footer {
 .solution-container{
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: lightblue;
+  background-color: #212529;
+  display: flex;
+  justify-content: center;
+  color: white;
+  border-radius: 5px;
+}
+
+tr:hover{
+  background-color: #E0E0E0;
+  transition: all 0.3s ease-in-out;
+}
+
+#formMin {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  margin-left: 0.5rem;
+}
+
+.btn-hover {
+  width: 10rem;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 2.5rem;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 0.5rem;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.btn-color {
+  background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+}
+
+table {
+  box-shadow: #BDBDBD 0px 0px 10px 0px;
+}
+
+.bg_Navbar {
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+.bg_Navbar h2 {
+  color: black;
+  font-weight: bold;
+}
+
+.bg_NavBar_Scroll {
+  background-color: #001928;
+  transition: background-color 0.5s;
+}
+
+.bg_NavBar_Scroll h2 {
+  font-weight: bold;
+  color: white;
 }

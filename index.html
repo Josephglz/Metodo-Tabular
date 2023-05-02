@@ -21,9 +21,10 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top d-flex justify-content-center bg_Navbar" id="Nav__Bar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Método Tabular </a>
+        <h2>Método tabular</h2>
+        <img src="/img/UAT-logo.png" alt="" style="width: 6rem;" id="imgLogo">
       </div>
     </nav>
 
@@ -33,16 +34,18 @@
       <div class="row">
         <div class="col-sm-12">
           <h2 class="mt-4">Por favor ingrese la ecuación a minimizar: </h2>
-          <form class="form-inline">
-            <div class="form-group mb-2 mr-4">
-              <label for="staticEmail2" class="function-label mr-2">f=Σ</label>
+          <form class="form" id="formMin">
+            <div>
+              <label for="minterminos" class="function-label mr-2">f=Σ</label>
+            </div>
+            <div class="form-group mb-2">
               <input type="text" class="form-control" id="minterminos" value="1,2,3,4,5">
             </div>
             <!-- <div class="form-group mx-sm-3 mb-2">
               <label for="inputPassword2" class="function-label">+DC &nbsp</label>
               <input type="text" class="form-control" id="dontcare" value="12,13,14">
             </div> -->
-            <button class="btn btn-primary mb-2" type="submit" id="btnMinimizar">Minimizar</button>
+            <button class="btn-hover btn-color" type="submit" id="btnMinimizar">Minimizar</button>
           </form>
         </div>
       </div>
@@ -60,7 +63,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-3" style="background-color: #001928;">
       <div class="container">
         <p class="m-0 text-center text-white">Proyecto Integrador - Diseño Digital 2023</p>
       </div>

@@ -29,3 +29,21 @@ function init() {
   else alert("Debe haber por lo menos 1 término");
 
 }
+
+var navBar = document.getElementById('Nav__Bar');
+var imgLogo = document.getElementById('imgLogo');
+
+window.onscroll = function() {
+    var scrollVal = window.scrollY;
+    
+    if (scrollVal > 0) {
+        navBar.classList.remove('bg_Navbar');
+        navBar.classList.add('bg_NavBar_Scroll');
+        imgLogo.src="/img/UAT-Logotipo-Blanco.svg";
+
+    } else {
+        navBar.classList.remove('bg_NavBar_Scroll');
+        navBar.classList.add('bg_Navbar');
+        imgLogo.src="/img/UAT-logo.png";
+    }
+}

@@ -3,7 +3,7 @@ function printIPEyNIP(ipe,nip,minterm) {
 
   output +=
   `     <table class="table">
-          <thead>
+          <thead class="thead-dark">
             <tr>
               <th scope="col">PI</th>`;
   for (m of minterm)
@@ -47,6 +47,16 @@ function printIPEyNIP(ipe,nip,minterm) {
   output += `</div>`;
   document.getElementById('solution2').innerHTML = output
 
+  solution2.animate([
+    { opacity: 0 },
+    { opacity: 1 }
+  ], {
+    duration: 500,
+    iterations: 1,
+    easing: "ease-in-out",
+    fill: "forwards",
+    direction: "alternate"
+  });
 }
 
 function isMinTinIP(mp,m) {

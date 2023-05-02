@@ -12,7 +12,7 @@ function printIterations(iterations,minterm,dontcare) {
     output +=
     `
       <table class="table">
-      <thead>
+      <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Minimización</th>
@@ -44,7 +44,8 @@ function printIterations(iterations,minterm,dontcare) {
           </tr>`;
         }
         output +=
-        `<tr><td style="border-bottom: 5px solid #ccc;" colspan="4"></td></tr>`
+        // `<tr><td style="border-bottom: 5px solid #ccc;" colspan="4"></td></tr>`
+        `<div style="height: 0.5rem; width: 100%; backgroundColor: #ccc; marginTop: 0.5rem; marginBottom: 0.5rem"></div>`
 
       }
       output +=
@@ -56,7 +57,17 @@ function printIterations(iterations,minterm,dontcare) {
   output += `</div>`;
 
   document.getElementById('solution').innerHTML = output
-  
+
+  solution.animate([
+    { opacity: 0 },
+    { opacity: 1 }
+  ], {
+    duration: 500,
+    iterations: 1,
+    easing: "ease-in-out",
+    fill: "forwards",
+    direction: "alternate"
+  });
 }
 
 function changeFPtoPos(fp) {

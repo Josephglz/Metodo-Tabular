@@ -9,7 +9,7 @@ function printSolution(solution,minterm,dontcare) {
 
   output += `
     <table class="table">
-    <thead>
+    <thead class="thead-dark">
       <tr>
         <th scope="col">PI</th>
         <th scope="col">Minimización</th>
@@ -65,8 +65,8 @@ function getLogicRep(nbin) {
 }
 
 function printSolRep(repsolution) {
-  var output = `<div class="col text-center solution-container">`;
-  output += `<h3 class="function-label" >f =</h3> <h4>`;
+  var output = `<div class="row solution-container container mx-3">`;
+  output += `<h3 class="function-label pr-2" >f =</h3> <h4>`;
 
   for (let i = 0; i< repsolution.length; i++) {
     output += repsolution[i]
