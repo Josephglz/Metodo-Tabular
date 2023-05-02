@@ -1,7 +1,13 @@
 var btnMinimizar = document.getElementById('btnMinimizar');
 btnMinimizar.addEventListener('click', function (e) {
   e.preventDefault();
-  init(e);
+  document.getElementById('minterminos').disabled = true
+  if(btnMinimizar.innerHTML == "Minimizar"){
+    init(e);
+    btnMinimizar.innerHTML = "Nueva ecuación";
+  } else {
+    window.location.reload()
+  }
 });
 
 function init() {
