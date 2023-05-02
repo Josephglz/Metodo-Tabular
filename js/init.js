@@ -39,11 +39,11 @@ window.onscroll = function() {
     if (scrollVal > 0) {
         navBar.classList.remove('bg_Navbar');
         navBar.classList.add('bg_NavBar_Scroll');
-        imgLogo.src="/img/UAT-Logotipo-Blanco.svg";
+        imgLogo.src="img/UAT-Logotipo-Blanco.svg";
 
     } else {
         navBar.classList.remove('bg_NavBar_Scroll');
         navBar.classList.add('bg_Navbar');
-        imgLogo.src="/img/UAT-logo.png";
+        imgLogo.src="img/UAT-logo.png";
     }
 }
