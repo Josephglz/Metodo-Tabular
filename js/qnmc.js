@@ -19,7 +19,6 @@ function quineMcCluskey(minterm,dontcare) {
   printIPEyNIP(ipe,nip,minterm)
 
   solution = getIPEyIPS(minterm,ip_wdc,ipe,nip)
-
   repsolution = printSolution(solution,minterm,dontcare)
 
   printSolRep(repsolution);

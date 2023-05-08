@@ -32,9 +32,21 @@ function init() {
   // if (input_dontcare.length != 0)
   //   dontcare = input_dontcare.split(",").map(Number);
 
-  if(minterm.length > 0)
-    quineMcCluskey(minterm,dontcare);
-  else alert("Debe haber por lo menos 1 término");
+  if(minterm.length > 0){
+    if(minterm.length <= 2) {
+      if(minterm[0] == 0 && minterm[1] == 1) {
+        var Res = 'A' + "\u0305" + 'B';
+        printSolRep([Res])
+      } else {
+        var Res = 'A' + 'B' + "\u0305";
+        printSolRep([Res])
+      }
+    } else {
+      quineMcCluskey(minterm,dontcare);
+    }
+  } else {
+    alert("Debe haber por lo menos 1 término");
+  }
 
 }
 

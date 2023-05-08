@@ -65,6 +65,7 @@ function getLogicRep(nbin) {
 }
 
 function printSolRep(repsolution) {
+  console.log(repsolution);
   var output = `<div class="row solution-container container mx-3">`;
   output += `<h3 class="function-label pr-2" >f =</h3> <h4>`;
 
