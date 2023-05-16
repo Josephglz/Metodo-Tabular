@@ -33,14 +33,17 @@ function init() {
   //   dontcare = input_dontcare.split(",").map(Number);
 
   if(minterm.length > 0){
-    if(minterm.length <= 2) {
-      if(minterm[0] == 0 && minterm[1] == 1) {
-        var Res = 'A' + "\u0305" + 'B';
-        printSolRep([Res])
-      } else {
-        var Res = 'A' + 'B' + "\u0305";
-        printSolRep([Res])
-      }
+    if(minterm.length <= 2 && 
+        (minterm[0] == 1 && minterm[1] == 0 || minterm[0] == 0 && minterm[1] == 1)
+      ) {
+        console.log('entra');
+        if(minterm[0] == 0 && minterm[1] == 1) {
+          var Res = 'A' + "\u0305" + 'B';
+          printSolRep([Res])
+        } else {
+          var Res = 'A' + 'B' + "\u0305";
+          printSolRep([Res])
+        }
     } else {
       quineMcCluskey(minterm,dontcare);
     }
