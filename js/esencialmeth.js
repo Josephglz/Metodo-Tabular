@@ -2,53 +2,54 @@
   Esta función devuelve todas las iteraciones de
   la primera parte del metodo de quine McCluskey
 */
-function getIterations(minterm,dontcare) {
-  /* This are auxiliary variavles */
-  var terminos = minterm.concat(dontcare);
-  var item = [];
-  var iterations = [];
-  var it = 0;
-  var ipf = []
-  var flag = false;
+function getIterations(minterm, dontcare,numVariablesSelect) {
+  var iterations = [[]];
+  var numt = Math.ceil(Math.log2(minterm[minterm.length - 1])) + 1;
 
-  /** Creating initial group */
-  for(var i = 0; i< terminos.length; i++){
-      let pos = contarUnos(terminos[i]);
-      let t = new Termino();
-      t.add_mp(terminos[i]);
-      addTerm(t,item,pos);
+  for (var i = 0; i < minterm.length; i++) {
+    var term = new Termino();
+    term.add_mp([minterm[i]]);
+    iterations[0].push(term);
   }
-  iterations.push(item)
 
-  while (!flag) {
-    item = iterations[it];
-    var buffer =[];
-    /** Obtaining prime implicants */
-    for(var i = 0 ; i < item.length-1 ; i++) if(item[i] != null)
-      for( var j = 0 ; j < item[i].length ; j++ )
-        for(var k = 0 ; k < item[i+1].length; k++ )
-          if (fp_equals(item[i][j].fp,item[i+1][k].fp)
-            && diffsPotencia2(item[i][j].mp,item[i+1][k].mp)) {
-            item[i][j].used = true;
-            item[i+1][k].used = true;
+  for (var i = 0; i < numt; i++) {
+    iterations.push([]);
+  }
 
-            let t = new Termino();
-            t.mp = item[i][j].mp.concat(item[i+1][k].mp)
-            t.fp =item[i][j].fp.slice()
-            t.add_fp(item[i+1][k].mp[0]-item[i][j].mp[0])
-            t.mp.sort((a, b)=> a-b);
-            t.fp.sort((a, b)=> a-b);
-            /* i is the position of new term in new iteration*/
-            addTerm(t,buffer,i);
+  for (var i = 0; i < iterations.length - 1; i++) {
+    for (var j = 0; j < iterations[i].length - 1; j++) {
+      for (var k = j + 1; k < iterations[i].length; k++) {
+        if (iterations[i][j].mp.length === i && iterations[i][k].mp.length === i) {
+          var diffCount = 0;
+          var diffIndex = -1;
+
+          for (var l = 0; l < iterations[i][j].mp.length; l++) {
+            if (iterations[i][j].mp[l] !== iterations[i][k].mp[l]) {
+              diffCount++;
+              diffIndex = l;
+            }
           }
-    if (buffer.length > 0) {
-      iterations.push(buffer);
-      it++;
-    }else flag = true;
 
+          if (diffCount === 1) {
+            var term = new Termino();
+            term.add_mp(iterations[i][j].mp.slice());
+            term.add_fp(iterations[i][j].fp.slice());
+            term.add_mp(iterations[i][k].mp.slice());
+            term.add_fp(iterations[i][k].fp.slice());
+            term.mp.splice(diffIndex, 1, "_");
+            term.used = true;
+            iterations[i + 1].push(term);
+            iterations[i][j].used = true;
+            iterations[i][k].used = true;
+          }
+        }
+      }
+    }
   }
-  return iterations
 
+  deleteEmptyTerms(iterations[iterations.length - 1]);
+
+  return iterations;
 }
 
 function searchForIP(iterations) {

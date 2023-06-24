@@ -1,11 +1,12 @@
-function printIterations(iterations,minterm,dontcare) {
+function printIterations(iterations,minterm,dontcare,numVariables) {
   var terminos = minterm.concat(dontcare);
   var numt = Math.ceil(Math.log2(terminos[terminos.length-1]))
   terminos.sort((a, b)=> a-b);
   console.log("imprimendo terminos",terminos);
   var output = `<div class="col" >
     <h2>Primera parte</h2>
-  `;
+    <h3>Número de variables: ${numVariables}</h3>
+    `;
 
   for (var it of iterations){
     var contador = 0
@@ -24,7 +25,7 @@ function printIterations(iterations,minterm,dontcare) {
 
     for (var gp of it) if(gp !=null){
       contador ++
-      for (var t of gp){
+      for (var t of gp.terms){
         var bin = t.mp[0].toString(2).padStart(numt, '0')
         var pos_fp = changeFPtoPos(t.fp)
         var nbin = changeBinNumber(bin,pos_fp)

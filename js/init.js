@@ -7,6 +7,7 @@ btnMinimizar.addEventListener('click', function (e) {
 
 function init() {
   const input_minterm = document.getElementById('minterminos').value;
+  const numVariablesSelect = document.getElementById('num-variables');
   // const input_dontcare = document.getElementById('dontcare').value;
   
   const regex = /^([0-9]{1,2},)*([0-9]{1,2})$/;
@@ -45,7 +46,7 @@ function init() {
           printSolRep([Res])
         }
     } else {
-      quineMcCluskey(minterm,dontcare);
+      quineMcCluskey(minterm,dontcare,numVariablesSelect);
     }
   } else {
     alert("Debe haber por lo menos 1 término");

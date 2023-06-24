@@ -1,5 +1,8 @@
-function printIPEyNIP(ipe,nip,minterm) {
-  var output = `<div class="col" ><h2>Segunda parte</h2>`;
+function printIPEyNIP(ipe,nip,minterm,numVariables) {
+  var output = `<div class="col" >
+    <h2>Segunda parte</h2>
+    <h3>Número de variables: ${numVariables}</h3>
+    `;
 
   output +=
   `     <table class="table">
